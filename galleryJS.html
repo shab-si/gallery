@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+
+
+	<style>
+	.card {
+	  /* Add shadows to create the "card" effect */
+	  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	  transition: 0.3s;
+	  width: 19%;
+      border-radius: 5px;
+	  float: left;  /* برای قرارگیری کنارهم بودن عکس ها  */
+	  margin: 2px;
+	  padding: 2px;
+	  text-align: center;
+	}
+
+	/* On mouse-over, add a deeper shadow */
+	.card:hover {
+	  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	}
+	
+	.container {
+	  padding: 2px 16px;
+	}
+	
+	.myimg {
+	  border-radius: 5px 5px 0 0;
+	  width: 100%;
+	  height: auto;
+	}
+	</style>
+    </head>
+
+    <body >
+	<div id= "myid1"> </div>
+        <script>
+
+           function generateCart(name, age, ax) {            
+                const cart = document.createElement('div');
+                cart.classList.add('card');
+				
+				const img = document.createElement("img");
+				img.src = ax;
+				img.classList.add('myimg');
+
+                const nameEl = document.createElement('span');
+                const nodea = document.createTextNode(name);
+                nameEl.appendChild(nodea);
+				
+				const nodea2 = document.createTextNode(': ');
+                nameEl.appendChild(nodea2);
+				
+                const ageEl = document.createElement('span');
+                const nodeb = document.createTextNode(age);
+                ageEl.appendChild(nodeb);
+
+				cart.appendChild(img);
+                cart.appendChild(nameEl);
+                cart.appendChild(ageEl);
+                
+                return cart;
+
+            } //end function
+            
+
+            const container = document.createElement('div');
+            container.classList.add('container');                 
+
+            const userData = [{
+
+                name:'Poriya',
+                age:30,
+				ax: "images/1.jpg"
+            },
+            {
+                name:'milad',
+                age:24,
+				ax: "images/2.jpg"
+            },
+            {
+                name:'amir',
+                age:20,
+                ax: "images/3.jpg"
+            },
+			{
+                name:'shabnam',
+                age:20,
+                ax: "images/4.jpg"
+            },
+         ]
+         
+         userData.forEach(data => {
+           // alert(data.name);
+            container.appendChild(generateCart(data.name, data.age, data.ax));
+         })
+                
+        //document.body.appendChild(container);         
+		document.getElementById("myid1").appendChild(container);
+
+        </script>
+
+    
+
+
+    </body>
+
+</html>
